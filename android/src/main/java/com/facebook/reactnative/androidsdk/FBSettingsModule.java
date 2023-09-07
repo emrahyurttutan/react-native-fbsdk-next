@@ -11,6 +11,7 @@ package com.facebook.reactnative.androidsdk;
 import androidx.annotation.Nullable;
 
 import com.facebook.FacebookSdk;
+import com.facebook.LoggingBehavior;
 import com.facebook.react.bridge.BaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableArray;
@@ -91,5 +92,13 @@ public class FBSettingsModule extends BaseJavaModule {
     @ReactMethod
     public static void setAdvertiserIDCollectionEnabled(Boolean enabled) {
         FacebookSdk.setAdvertiserIDCollectionEnabled(enabled);
+    }
+
+    @ReactMethod
+    public static void setAndroidDebugView(Boolean enabled) {
+        if(enabled) {
+            FacebookSdk.setIsDebugEnabled(true);
+            FacebookSdk.addLoggingBehavior(LoggingBehavior.APP_EVENTS);
+        }
     }
 }

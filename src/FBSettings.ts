@@ -119,4 +119,13 @@ export default {
   setAdvertiserIDCollectionEnabled(enabled: boolean) {
     Settings.setAdvertiserIDCollectionEnabled(enabled);
   },
+
+  /**
+   * android apk fb debug view added
+   */
+  setAndroidDebugView(enabled: boolean) {
+    if (Platform.OS === 'android') {
+      Settings.setAndroidDebugView(enabled);
+    }
+  },
 };
